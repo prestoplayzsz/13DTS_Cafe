@@ -6,10 +6,13 @@ menu
 
 {% block main %}
     <div class="products">
+        {% for coffee in products %}
         <div class="product-box">
-            <h3 class="product-box-heading"> Flat White</h3>
+            <div class="product-box-heading">
+                <h3>potato</h3>
+            </div>
             <p class = "product-box-info">Definitely created in New Zealand (not in the West Island) - a classic. </p>
-            <img src="static/images/flatwhite.jpg">
+            <img src="static/images/{{  coffee[3] }}.jpg">
             <p><strong>Size:</strong> 180ml</p>
             <p><strong>: $4.00</strong></p>
         </div>
