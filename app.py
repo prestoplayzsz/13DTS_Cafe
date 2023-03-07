@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import sqlite3
 from sqlite3 import Error
 
-DATABASE = "C:/Users/Preston Wong/PycharmProjects/SmileProject/templates/smile.db"
+DATABASE = "C:/Users/Preston Wong/OneDrive - Wellington College/13DTS/13DTS_Cafe/smile.db"
 
 app = Flask(__name__)
 
