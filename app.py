@@ -39,6 +39,25 @@ def render_menu_page(cat_id):
 
 @app.route('/contact')
 def render_contact_page():
+    if request.method == 'POST':
+        email = request.form['email'].strip().lower()
+        password = request.form['password'].strip()
+
+        query = """SELECT id, fname, password FROM user WHERE email =?"""
+        con = open_database(DATABASE)
+        cur = con.cursor()
+        cur.execute(query, (email,))
+        user_data = cur.fetchone()
+        con.close()
+
+
+        try:
+            user_id = user_data[0]
+            first_name = user_id[1]
+            db_password = user_id[2]
+        except IndexError:
+            return redirect("/login?error=Invalid+username+or+password")
+
     return render_template('contact.html')
 
 @app.route('/login', methods=['POST', 'GET'])
